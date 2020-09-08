@@ -6,9 +6,30 @@
       dark
     >
     <v-text>Anunciador mazatlan</v-text>
+    <v-spacer></v-spacer>
+    <v-menu offset-y>
+      <template v-slot:activator="{ on, attrs }">
+        <v-btn
+          color="dark"
+          dark
+          v-bind="attrs"
+          v-on="on"
+        >
+          Mi perfil
+        </v-btn>
+      </template>
+      <v-list>
+        <v-list-item
+        >
+        <router-link :to="{ name: 'Perfil', params: {nombre: 'pepebanana'}}">
+         <v-list-item-title>Ver perfil</v-list-item-title>
+        </router-link>
+          
+        </v-list-item>
+      </v-list>
+    </v-menu>
     </v-app-bar>
     <v-main>
-      <InicioCarrusel></InicioCarrusel>
       <router-view></router-view>
     </v-main>
       <Footer></Footer>
@@ -27,7 +48,18 @@ export default {
   },
 
   data: () => ({
-    //
-  }),
+      items: [
+        { title: 'Ver perfil' },
+        { title: 'Mis negocios' },
+        { title: 'Mis favoritos' },
+        { title: 'Cerrar Sessión' },
+      ],
+      usuario: 'pepebanana'
+    }),
+  methods: {
+    verPerfil () {
+      this.$router.push({ name: 'Campeones' , params: {nombre: item.usuario}})
+    }
+  },
 };
 </script>

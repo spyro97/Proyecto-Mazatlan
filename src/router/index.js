@@ -12,7 +12,12 @@ Vue.use(VueRouter)
   {
     path: '/negocios/:categoria',
     name: 'Negocios',
-    component: () => import(/* webpackChunkName: "inicio" */ '../views/Negocios.vue')
+    component: () => import(/* webpackChunkName: "negocios" */ '../views/Negocios.vue')
+  },
+  {
+    path: '/perfil/:nombre',
+    name: 'Perfil',
+    component: () => import(/* webpackChunkName: "perfil" */ '../views/Usuarios.vue')
   }
 ]
 

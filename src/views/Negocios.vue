@@ -1,5 +1,6 @@
 <template>
     <div>
+        <InicioCarrusel></InicioCarrusel>
         <h1>Esta es la categoria de: {{this.$route.params.categoria}}</h1>
         <Cartas></Cartas>
     </div>

@@ -1,7 +1,7 @@
 <template>
     <div>
+     <InicioCarrusel></InicioCarrusel>
      <InicioCartas></InicioCartas>
-     <br>
     </div>
 </template>
 
