@@ -8,7 +8,7 @@ import vuetify from './plugins/vuetify';
 
 // Axios
 Vue.use(VueAxios, axios)
-axios.defaults.baseURL = 'http://localhost:8008/api/v1/';
+axios.defaults.baseURL = 'http://localhost:8051/api/v1/';
 
 Vue.config.productionTip = false
 

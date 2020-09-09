@@ -2,18 +2,18 @@
     <div>
         <InicioCarrusel></InicioCarrusel>
         <h1>Esta es la categoria de: {{this.$route.params.categoria}}</h1>
-        <Cartas></Cartas>
+        <ObtenerNegocios></ObtenerNegocios>
     </div>
 </template>
 
 <script>
-import Cartas from '@/components/Inicio/Cartas';
+import ObtenerNegocios from '@/components/Inicio/ObtenerNegocios';
 import InicioCarrusel from '@/components/Inicio/InicioCarrusel';
 
 export default {
   components: {
     InicioCarrusel,  
-    Cartas,
+    ObtenerNegocios,
   }
 };
 </script>

@@ -6,20 +6,22 @@
     <v-container fluid>
       <v-row dense>
         <v-col
-          v-for="card in cards"
-          :key="card.title"
-          :cols="card.flex"
+          v-for="negocio in datosCategorias"
+          :key="negocio.id_negocio"
+          :cols="6"
         >
           <v-card>
             <v-img
-              :src="card.src"
               class="white--text align-end"
               gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
               height="200px"
             >
-              <v-card-title v-text="card.title"></v-card-title>
+              <v-card-title v-text="negocio.nombre_negocio"></v-card-title>
             </v-img>
-
+            
+            <router-link :to="{ name: 'Negocio', params: {nombre: negocio.nombre_negocio}}">
+              <v-btn>Ver datos</v-btn>
+            </router-link>
             <v-card-actions>
               <v-spacer></v-spacer>
 
@@ -44,16 +46,26 @@
 
 <script>
   export default {
-    name: 'Cartas',
+    name: 'ObtenerNegocios',
     data: () => ({
-      cards: [
-        { title: 'Pre-fab homes', src: 'https://cdn.vuetifyjs.com/images/cards/house.jpg', flex: 6 },
-        { title: 'Favorite road trips', src: 'https://cdn.vuetifyjs.com/images/cards/road.jpg', flex: 6 },
-        { title: 'Best airlines', src: 'https://cdn.vuetifyjs.com/images/cards/plane.jpg', flex: 6 },
-        { title: 'Best airlines', src: 'https://cdn.vuetifyjs.com/images/cards/plane.jpg', flex: 6 },
-        { title: 'Best airlines', src: 'https://cdn.vuetifyjs.com/images/cards/plane.jpg', flex: 6 },
-        { title: 'Best airlines', src: 'https://cdn.vuetifyjs.com/images/cards/plane.jpg', flex: 6  },
-      ],
+      datosCategorias: []
     }),
+
+    methods: {
+      async obtenerCategoria () {
+        try {
+          this.axios.get(`search/business`, { params : {category:this.$route.params.categoria}}).then( (response) =>{
+            this.datosCategorias = response.data.data
+            console.log(this.datosCategorias)
+          })
+        } catch (error) {
+          console.log(error)
+        }
+      }
+    },
+
+    mounted() {
+      this.obtenerCategoria()
+    },
   }
 </script>

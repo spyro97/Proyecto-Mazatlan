@@ -5,7 +5,10 @@
       color="primary"
       dark
     >
-    <v-text>Anunciador mazatlan</v-text>
+    <router-link to="/">
+     <h2>Anunciador mazatlan</h2>
+    </router-link>
+    
     <v-spacer></v-spacer>
     <v-menu offset-y>
       <template v-slot:activator="{ on, attrs }">
@@ -63,3 +66,9 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+h2 {
+  color: white;
+}
+</style>

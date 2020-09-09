@@ -15,10 +15,20 @@ Vue.use(VueRouter)
     component: () => import(/* webpackChunkName: "negocios" */ '../views/Negocios.vue')
   },
   {
+    path: '/registrar-negocio',
+    name: 'CrearNegocio',
+    component: () => import(/* webpackChunkName: "crear negocio" */ '../views/CrearNegocio.vue')
+  },
+  {
     path: '/perfil/:nombre',
     name: 'Perfil',
     component: () => import(/* webpackChunkName: "perfil" */ '../views/Usuarios.vue')
-  }
+  },
+  {
+    path: '/:nombre',
+    name: 'Negocio',
+    component: () => import(/* webpackChunkName: "negocio" */ '../views/Negocio.vue')
+  },
 ]
 
 const router = new VueRouter({
